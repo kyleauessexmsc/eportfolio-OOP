@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>2</title>
+		<title>Task 2: Showcase Artefacts</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -22,45 +22,172 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-									</ul>
+									<a href="index.html" class="logo"><strong>e-Portfolio - Kyle Au</strong></a>
 								</header>
 
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Generic</h1>
+										<h1>Task 2: Showcase Artefacts</h1>
 									</header>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<!-- Section 2.1 -->
+									<h2>2.1 Coding Exercise: Advanced Thread-Safe Banking System (Capstone)</h2>
+									<p>The capstone project significantly extends the original banking system with layered architecture, dependency injection, and secure coding features. The full source code is available in the GitHub repository.</p>
+									
+									<h3>Key Enhancements from Original Submission:</h3>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Enhancement</th>
+													<th>Concept Demonstrated</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><code>TransactionLogger</code> class</td>
+													<td>Layered Architecture (Persistence Layer)</td>
+												</tr>
+												<tr>
+													<td><code>SecureTransactionLogger</code> class</td>
+													<td>Secure Coding, Decorator Pattern, Polymorphism</td>
+												</tr>
+												<tr>
+													<td><code>lock_factory</code> parameter in <code>BankAccount</code></td>
+													<td>Dependency Injection / IoC</td>
+												</tr>
+												<tr>
+													<td>11 new unit tests (41 total)</td>
+													<td>TDD, mocking, DI validation</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<span class="image main"><img src="images/ss10.png" alt="Screenshot 10: Code Showcase" /></span>
 
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<h3>Development Process and Error Resolution:</h3>
+									<p>During capstone development, a subtle bug was encountered in <code>SecureTransactionLogger.get_logs()</code>. The method created a copy of each log entry for masking but failed to add the modified copy to the returned list. Unit tests caught this data leakage immediately—the masking test failed because full account numbers appeared in the output. The fix required appending each masked dictionary to a new list. This experience demonstrated how TDD catches security-critical bugs that could expose sensitive information in production.</p>
+									<p>Other challenges included <code>ModuleNotFoundError</code> from incorrect import paths (resolved by consolidated file structure) and Git authentication issues (resolved via Personal Access Token configuration).</p>
+
+									<h3>Seminar Demonstration:</h3>
+									<p>A demonstration of the original banking system was presented during the Unit 6 seminar on 1-June 2026. The presentation covered the system architecture, thread-safety mechanisms, and test results. Feedback received praised the code structure and report organisation, with suggestions to consolidate multiple code files into a single file for easier review and to include a reference section in the final report. Both suggestions were incorporated into the submitted work and carried forward into the capstone development.</p>
+
+									<h3>Case Study: Layered Architecture for Scalable Systems:</h3>
+									<p>The capstone's layered design serves as a case study in scalable architecture. The business layer (<code>BankAccount</code>, <code>TransferService</code>) is decoupled from the persistence layer (<code>TransactionLogger</code>) through dependency injection. This allows the logging mechanism to be swapped—from in-memory to database-backed—without modifying business logic. <code>SecureTransactionLogger</code> demonstrates how the Decorator Pattern enables security enhancements without altering the parent class.</p>
+
+									<h3>Independent Working and Critical Reflection:</h3>
+									<p>This project was completed independently, with design decisions made through critical evaluation of trade-offs. Choosing DI for lock injection over hardcoded locks, implementing TDD for the logger, and selecting a layered architecture over a monolithic design all required weighing flexibility against complexity.</p>
+
+									<h3>AI-Readiness Considerations:</h3>
+									<p>The <code>TransactionLogger</code> infrastructure provides structured transaction data suitable for ML pipelines. Clean interfaces enable AI model integration, and the DI pattern allows AI-driven components to be injected alongside existing business logic.</p>
 
 									<hr class="major" />
 
-									<h2>Interdum sed dapibus</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<!-- Section 2.2 -->
+									<h2>2.2 Advanced Design Patterns: Practical Application</h2>
+									
+									<h3>Strategy Pattern — UserTransactionTask</h3>
+									<p>The separation of <code>UserTransactionTask</code> from <code>TransactionSimulator</code> follows the Strategy Pattern. Different transaction behaviours can be implemented as separate classes and injected into the simulator without modifying its threading infrastructure.</p>
+									<span class="image main"><img src="images/ss12.png" alt="Screenshot 12: Strategy Pattern" /></span>
+									<p><strong>Why this pattern:</strong> The Strategy Pattern enables runtime behavioural flexibility. A deposit-only stress test or a withdrawal-heavy scenario could be created as new <code>UserTransactionTask</code> subclasses and passed to the same <code>TransactionSimulator</code>. This improves maintainability by isolating transaction logic from thread management, and enhances testability by allowing each strategy to be tested independently.</p>
+
+									<h3>Decorator Pattern — SecureTransactionLogger</h3>
+									<p><code>SecureTransactionLogger</code> demonstrates the Decorator Pattern in practice. It wraps <code>TransactionLogger</code> and adds data masking to <code>get_logs()</code>:</p>
+									<span class="image main"><img src="images/ss11.png" alt="Screenshot 11: Decorator Pattern" /></span>
+									<p><strong>Why this pattern:</strong> The Decorator Pattern supports the Open/Closed Principle. Security layers can be added without modifying the core logging class. This is valuable in regulated industries where audit requirements evolve independently of business logic.</p>
+
+									<h3>Visitor Pattern — Conceptual Application</h3>
+									<p>The Visitor Pattern separates algorithms from object structures. In the banking system, this could be applied to generate reports or analytics across different account types without adding reporting logic to each account class.</p>
+									<p><strong>Why this pattern:</strong> The Visitor Pattern was explored because it separates analytics logic from the core account structure. Adding a new report type should not require modifying every account class, improving extensibility.</p>
+
+									<h3>Abstract Factory — Conceptual Application</h3>
+									<p>The Abstract Factory pattern could create families of related account types (savings, current, business) with consistent interfaces. This would allow switching between different banking service providers or regulatory regimes by changing the factory implementation.</p>
+									<p><strong>Why this pattern:</strong> The Abstract Factory pattern was considered for its ability to create families of related objects with consistent interfaces. In a multi-tenant banking platform, swapping the factory implementation enhances maintainability and scalability.</p>
+
+									<h3>Pattern Selection Trade-offs:</h3>
+									<p>The Strategy Pattern was prioritised for the original assignment. The Decorator Pattern was implemented in the capstone to demonstrate practical security extension. Visitor and Abstract Factory remain conceptual—their benefits for future extensions are acknowledged, but implementing them now would add complexity disproportionate to current scope. Managing abstraction versus over-engineering was a key consideration throughout the design process.</p>
 
 									<hr class="major" />
 
-									<h2>Magna etiam veroeros</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<!-- Section 2.3 -->
+									<h2>2.3 Testing: Mocking, TDD, and AI-Driven Testing</h2>
+									
+									<h3>Test-Driven Development (TDD)</h3>
+									<p>The <code>TransactionLogger</code> class was developed following TDD principles. Tests were written before implementation:</p>
+									<ol>
+										<li><strong>RED:</strong> <code>test_log_records_single_transaction</code> failed—no <code>TransactionLogger</code> class existed</li>
+										<li><strong>GREEN:</strong> Minimal <code>log()</code> and <code>get_logs()</code> methods implemented</li>
+										<li><strong>REFACTOR:</strong> <code>get_logs_for_account()</code> filtering and <code>clear()</code> added while keeping tests green</li>
+									</ol>
+									<p>The <code>SecureTransactionLogger</code> masking bug (described in 2.1) was also caught by TDD—the failing test guided the exact location of the fix.</p>
+
+									<h3>Mocking Frameworks</h3>
+									<p>The <code>TestDependencyInjection</code> class uses <code>unittest.mock.MagicMock</code> to inject mock locks, verifying that <code>deposit</code> calls <code>__enter__</code> and <code>__exit__</code> without relying on real threading. This isolates the DI mechanism from concurrency behaviour.</p>
+									<span class="image main"><img src="images/ss13.png" alt="Screenshot 13: Mocking" /></span>
+
+									<h3>AI-Assisted Testing Reflection</h3>
+									<p>The module introduced AI-driven testing concepts including automated test-case generation and intelligent edge-case discovery. The deterministic tests produce precise expected values, making them suitable for regression testing in CI/CD pipelines. The <code>TransactionLogger</code>'s structured log format could support automated test generation by providing predictable input-output patterns.</p>
+									<span class="image main"><img src="images/ss14.png" alt="Screenshot 14: AI-Assisted Testing" /></span>
+
+									<h3>Testing Complexity</h3>
+									<p>Testing concurrent code presents unique challenges. Race conditions are inherently non-deterministic, meaning a test might pass on one execution and fail on the next. To address this, the test suite includes both random simulations (for real-world coverage) and deterministic tests (for reproducible verification). The deterministic tests use fixed transaction patterns with precisely calculated expected outcomes, ensuring that thread-safety violations produce consistent failures rather than intermittent ones.</p>
+
+									<h3>Testing Philosophy</h3>
+									<p>Testing is framed as supporting object-oriented quality rather than replacing engineering judgement. The expanded 41-test suite verifies correctness but does not substitute for careful design.</p>
 
 									<hr class="major" />
 
-									<h2>Lorem aliquam bibendum</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<!-- Section 2.4 -->
+									<h2>2.4 Artefact Summary</h2>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Artefact</th>
+													<th>Pattern/Principle</th>
+													<th>Key Benefit</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Thread-safe banking system</td>
+													<td>SRP, Encapsulation, Defensive Programming</td>
+													<td>Maintainable, extensible architecture</td>
+												</tr>
+												<tr>
+													<td><code>UserTransactionTask</code></td>
+													<td>Strategy Pattern</td>
+													<td>Runtime behavioural flexibility</td>
+												</tr>
+												<tr>
+													<td><code>TransferService</code> lock ordering</td>
+													<td>Canonical Ordering Pattern</td>
+													<td>Deadlock-free concurrent transfers</td>
+												</tr>
+												<tr>
+													<td><code>SecureTransactionLogger</code></td>
+													<td>Decorator Pattern, Secure Coding</td>
+													<td>Dynamic security layers, data masking</td>
+												</tr>
+												<tr>
+													<td><code>BankAccount</code> DI constructor</td>
+													<td>Dependency Injection / IoC</td>
+													<td>Testable, flexible synchronisation</td>
+												</tr>
+												<tr>
+													<td>Unit test suite (41 tests)</td>
+													<td>TDD, Mocking, Isolated testing</td>
+													<td>Reliable regression testing</td>
+												</tr>
+												<tr>
+													<td><code>TransactionLogger</code></td>
+													<td>Layered Architecture</td>
+													<td>Decoupled persistence tier</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 
 								</section>
 
@@ -70,14 +197,6 @@
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -85,77 +204,16 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="elements.html">Elements</a></li>
 										<li>
-											<span class="opener">Submenu</span>
+											<span class="opener">Advanced Object-Oriented Design and Programming</span>
 											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
+												<li><a href="task1.html">Task 1: Summarise Key Learning Outcomes</a></li>
+												<li><a href="task2.html">Task 2: Showcase Artefacts</a></li>
+												<li><a href="#">Reference List</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
 									</ul>
 								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
 						</div>
 					</div>
 
