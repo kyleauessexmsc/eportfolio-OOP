@@ -995,7 +995,7 @@ header p {
   font-weight: 400;
   letter-spacing: 0.075em;
   margin-top: -0.5em;
-  text-transform: none; }
+  text-transform: uppercase; }
 
 header.major > :last-child {
   border-bottom: solid 3px #f56a6a;
@@ -1508,7 +1508,7 @@ button,
   padding: 0 2.25em;
   text-align: center;
   text-decoration: none;
-  text-transform: none;
+  text-transform: uppercase;
   white-space: nowrap; }
   input[type="submit"]:hover,
   input[type="reset"]:hover,
@@ -2205,7 +2205,8 @@ button,
   list-style: none;
   margin-bottom: 0;
   padding: 0;
-  text-transform: uppercase; }
+  text-transform: none; }
+  
   #menu ul a, #menu ul span {
     border-bottom: 0;
     color: inherit;
