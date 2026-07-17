@@ -1508,7 +1508,7 @@ button,
   padding: 0 2.25em;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
   white-space: nowrap; }
   input[type="submit"]:hover,
   input[type="reset"]:hover,
