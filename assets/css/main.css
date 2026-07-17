@@ -2205,7 +2205,7 @@ button,
   list-style: none;
   margin-bottom: 0;
   padding: 0;
-  text-transform: uppercase; }
+  text-transform: none; }
   #menu ul a, #menu ul span {
     border-bottom: 0;
     color: inherit;
